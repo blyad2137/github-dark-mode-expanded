@@ -1,4 +1,4 @@
-<p align="center"><a href="https://userstyles.world/style/6937/github-dark-mode-expanded"><img src="https://i.imgur.com/MEqF0Zc.png" style="width: 20rem;"></img></a></p>
+<p align="center"><a href="https://userstyles.world/style/6937/github-dark-mode-expanded"><img src="https://i.imgur.com/MEqF0Zc.png" style="width: 30rem;"></img></a></p>
 
 <div id="preview">
   <h2>🖼 Preview</h2>
