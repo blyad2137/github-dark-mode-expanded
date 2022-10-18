@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           GitHub - Dark Mode Expanded
 @namespace      github.com/blyad2137/github-dark-mode-expanded
-@version        1.0.0
+@version        1.0.1
 @description    `Simply expands currently available dark mode on GitHub and fixes few issues.`
 @author         blyad (https://github.com/blyad2137)
 @license	CC BY-NC-SA 4.0
@@ -462,8 +462,14 @@
 	.dev-policy-link-box::after {
 		background-color: var(--color-scale-white);
 	}
+	.home-git-log-light::after, .home-git-log-subtle::after, .home-git-log-dark::after, .home-git-log-center::after {
+		background-color: var(--color-border-default);
+	}
+	.home-git-log-dark::after, .home-git-log-dark-icons::after {
+		background-color: #42526d;
+	}
 	.underline-dashed {
-		background-image: linear-gradient(to right, var(--color-scale-gray-5) 50%, transparent);
+		background-image: linear-gradient(to right, var(--color-fg-subtle) 50%, transparent);
 	}
 	.p-responsive div[style*="#DADFE9"] {
 		border-color: var(--color-canvas-overlay) !important;
@@ -474,17 +480,38 @@
 	.MarketingBody-lead a {
 		color: var(--color-accent-fg);
 	}
-	[src*="/backgrounds/bg-whats-new.svg"], [src*="/diversity-hero-bg-main.svg"], [src*="/diversity-hero-bg-side-1.svg"], [src*="/diversity-hero-bg-side-2.svg"], [src*="/diversity-platform-bg-side.svg"], .build-in-animate .diversity-cta-bg rect, [src*="/marketplace-illustration-01.svg"], [src*="/security/platform/security-hero-spice.png"], [src*="/security/platform/security-footer-spice.png"] {
+	[src*="/backgrounds/bg-whats-new.svg"], [src*="/diversity-hero-bg-main.svg"], [src*="/diversity-hero-bg-side-1.svg"], [src*="/diversity-hero-bg-side-2.svg"], [src*="/diversity-platform-bg-side.svg"], .build-in-animate .diversity-cta-bg rect, [src*="/marketplace-illustration-01.svg"], [src*="/security/platform/security-hero-spice.png"], [src*="/security/platform/security-footer-spice.png"], [src*="/home/matrix-workflow-canvas.png"] {
 		filter: invert(84%) sepia(5%) saturate(494%) hue-rotate(176deg) brightness(36%) contrast(100%);
+	}
+	[src*="/home/enterprise-city-w-logos.jpg"] {
+		filter: invert(84%) sepia(33%) saturate(494%) hue-rotate(176deg) brightness(38%) contrast(100%);
 	}
 	.d-inline-block svg g rect[fill="url(#pattern0)"] {
 		filter: invert(1) hue-rotate(180deg) saturate(4) sepia(50%);
 	}
-	[src="https://avatars.githubusercontent.com/u/1231870?s=64&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=140&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=62&v=4"] {
+	[src="https://avatars.githubusercontent.com/u/1231870?s=64&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=140&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=62&v=4"], [src*="/home/logos/platform-apple.svg"], [src*="/home/logos/platform-google.svg"], [src*="/home/logos/platform-windows.svg"], [src*="/home/logos/platform-linux.svg"], [src*="/home/logos/platform-arm.svg"] {
 		filter: invert(1) hue-rotate(180deg);
+	}
+	[src*="https://avatars.githubusercontent.com/rust-lang?s=64&v=4"] {
+		filter: invert(1) hue-rotate(180deg);
+		background-color: var(--color-fg-default) !important;
+	}
+	[src*="/home/matrix-workflow-build.png"], [src*="/home/matrix-workflow-test.png"], [src*="/home/matrix-workflow-test-tab.png"], [src*="/home/matrix-workflow-publish-tab.png"], [src*="/home/matrix-workflow-publish.png"], [src*="/home/matrix-workflow-success.svg"] {
+		filter: invert(84%) sepia(5%) saturate(494%) hue-rotate(176deg) brightness(96%) contrast(100%);
+		z-index: 1;
+	}
+	[src*="/home/matrix-workflow-canvas.png"] {
+		z-index: -1;
+		position: relative;
+	}
+	[src*="/home/matrix-workflow-success.svg"] {
+		z-index: 1;
 	}
 	.d-inline-block svg g[style*="mix-blend-mode:multiply"] {
 		mix-blend-mode: normal !important;
+	}
+	.text-md-left[style*="ox-shadow: 0 0 50px 30px #fff"] {
+		box-shadow: 0 0 50px 30px var(--color-canvas-default) !important;
 	}
 	.enterprise-transformation {
 		background-image: none;
@@ -510,6 +537,22 @@
 	}
 	.d-inline-block svg g path[fill="#000"], .d-inline-block svg g[fill="#000"] {
 		fill: var(--color-scale-white);
+	}
+	.home-hero-container svg path[fill="#fff"], .home-git-log-terminal svg path[fill="#fff"], .home-git-item path[fill="#fff"], .font-mktg [data-color-mode] svg path[fill="#fff"] {
+		fill: var(--color-canvas-default);
+	}
+	.home-git-log-terminal svg g[fill="#8392ad"], .home-git-item g[fill="#8392ad"] {
+		fill: var(--color-fg-subtle);
+	}
+	.home-git-log-light .home-git-icon>path {
+		fill: var(--color-border-default);
+	}
+	.home-git-log-light .home-git-icon>circle {
+		fill: var(--color-canvas-default);
+		stroke: var(--color-border-default);
+	}
+	.home-git-log-light .home-branch>path {
+		stroke: var(--color-border-default);
 	}
 	.box-shadow-default-mktg {
 		box-shadow: 0 2.75px 2.21px rgba(255, 255, 255, .07), 0 6.65px 5.32px rgba(255, 255, 255, .04), 0 12.5px 10px rgba(255, 255, 255, .03), 0 22px 18px rgba(255, 255, 255, .03), 0 42px 33.4px rgba(255, 255, 255, .02), 0 100px 80px rgba(255, 255, 255, .02) !important;
