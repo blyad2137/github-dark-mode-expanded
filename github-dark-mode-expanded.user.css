@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           GitHub - Dark Mode Expanded
 @namespace      github.com/blyad2137/github-dark-mode-expanded
-@version        1.0.1
+@version        1.0.2
 @description    `Simply expands currently available dark mode on GitHub and fixes few issues.`
 @author         blyad (https://github.com/blyad2137)
 @license	CC BY-NC-SA 4.0
@@ -299,6 +299,7 @@
 		--color-fg-subtle: #6e7681;
 		--color-fg-on-emphasis: #ffffff;
 		--color-canvas-default: #0d1117;
+		--color-canvas-default-rgb: 13, 17, 23;
 		--color-canvas-overlay: #161b22;
 		--color-canvas-inset: #010409;
 		--color-canvas-subtle: #161b22;
@@ -314,6 +315,7 @@
 		--color-neutral-muted: rgba(110,118,129,0.4);
 		--color-neutral-subtle: rgba(110,118,129,0.1);
 		--color-accent-fg: #58a6ff;
+		--color-accent-second: #91a6ca;
 		--color-accent-emphasis: #1f6feb;
 		--color-accent-muted: rgba(56,139,253,0.4);
 		--color-accent-subtle: rgba(56,139,253,0.15);
@@ -450,14 +452,17 @@
 		--color-scale-coral-8: #640d04;
 		--color-scale-coral-9: #460701;
 	}
-	.header-white .header-logged-out, .header-white .Header, .CircleBadge[style*="background-color: #fff"] {
+	.header-white .header-logged-out, .header-white .Header, .CircleBadge[style*="background-color: #fff"], .z-1[style*="background-color: #fafbfc"] {
 		background-color: var(--color-canvas-default) !important;
 	}
-	.enterprise-garden-container::after {
+	.enterprise-garden-container::after, .features-category--icon-shift {
 		background-color: var(--color-canvas-default);
 	}
-	.header-white header:not(.header-logged-out) .header-search-wrapper, .header-white header:not(.header-logged-out) .search-input-container {
+	.header-white header:not(.header-logged-out) .header-search-wrapper, .header-white header:not(.header-logged-out) .search-input-container, .px-md-8[style*="background-color: #f7f7f7"] {
 		background-color: var(--color-canvas-overlay) !important;
+	}
+	.features-category--git-line {
+		background-color: var(--color-canvas-overlay);
 	}
 	.dev-policy-link-box::after {
 		background-color: var(--color-scale-white);
@@ -465,14 +470,64 @@
 	.home-git-log-light::after, .home-git-log-subtle::after, .home-git-log-dark::after, .home-git-log-center::after {
 		background-color: var(--color-border-default);
 	}
+	.issues-pill-orange {
+		background-color: var(--color-scale-orange-9);
+		color: var(--color-scale-orange-0);
+	}
+	.issues-pill-purple {
+		background-color: var(--color-scale-purple-9);
+		color: var(--color-scale-purple-0);
+	}
+	.issues-pill-pink {
+		background-color: var(--color-scale-pink-9);
+		color: var(--color-scale-pink-0);
+	}
+	.issues-pill-yellow {
+		background-color: var(--color-scale-yellow-9);
+		color: var(--color-scale-yellow-0);
+	}
+	.issues-pill-blue {
+		background-color: var(--color-scale-blue-9);
+		color: var(--color-scale-blue-0);
+	}
+	.issues-pill-green {
+		background-color: var(--color-scale-green-9);
+		color: var(--color-scale-green-0);
+	}
+	.issues-pill-red {
+		background-color: var(--color-scale-red-9);
+		color: var(--color-scale-red-0);
+	}
 	.home-git-log-dark::after, .home-git-log-dark-icons::after {
 		background-color: #42526d;
 	}
 	.underline-dashed {
 		background-image: linear-gradient(to right, var(--color-fg-subtle) 50%, transparent);
 	}
+	.fade-img-to-white-bg::before {
+		background: linear-gradient(to bottom, var(--color-canvas-default) 0%, rgba(255, 255, 255, 0) 100%);
+	}
+	.fade-img-to-white-bg::after {
+		background: linear-gradient(to top, var(--color-canvas-default) 0%, rgba(255, 255, 255, 0) 100%);
+	}
+	.features-category--apps-illo1-inner2 {
+		background: linear-gradient(167.44deg, rgba(var(--color-canvas-default-rgb),.7) 38.78%, rgba(255, 255, 255, 0) 125.06%);
+	}
+	.features-category--apps-illo2, .features-category--apps-illo1 {
+		background-color: rgba(var(--color-canvas-default-rgb),.7);
+		border-color: var(--color-canvas-default);
+	}
+	.issues-avatar {
+		border-color: var(--color-canvas-default);
+	}
+	.features-category--git-line-corner, .features-category--apps-illo1-inner1, .features-category--git-line-ending {
+		border-color: var(--color-canvas-overlay);
+	}
 	.p-responsive div[style*="#DADFE9"] {
 		border-color: var(--color-canvas-overlay) !important;
+	}
+	.delete-topic-button, .delete-topic-link {
+		border-left-color: var(--color-scale-blue-6);
 	}
 	.text-gray-dark-mktg, .MarketingBody-lead>p:first-child {
 		color: var(--color-fg-default) !important;
@@ -480,25 +535,43 @@
 	.MarketingBody-lead a {
 		color: var(--color-accent-fg);
 	}
-	[src*="/backgrounds/bg-whats-new.svg"], [src*="/diversity-hero-bg-main.svg"], [src*="/diversity-hero-bg-side-1.svg"], [src*="/diversity-hero-bg-side-2.svg"], [src*="/diversity-platform-bg-side.svg"], .build-in-animate .diversity-cta-bg rect, [src*="/marketplace-illustration-01.svg"], [src*="/security/platform/security-hero-spice.png"], [src*="/security/platform/security-footer-spice.png"], [src*="/home/matrix-workflow-canvas.png"] {
+	.text-blue-dark {
+		color: var(--color-accent-fg) !important;
+	}
+	.text-gray-mktg {
+		color: var(--color-accent-second) !important;
+	}
+	.features-category--icon-shift {
+		color: var(--color-canvas-overlay);
+	}
+	[src*="/backgrounds/bg-whats-new.svg"], [src*="/diversity-hero-bg-main.svg"], [src*="/diversity-hero-bg-side-1.svg"], [src*="/diversity-hero-bg-side-2.svg"], [src*="/diversity-platform-bg-side.svg"], .build-in-animate .diversity-cta-bg rect, [src*="/marketplace-illustration-01.svg"], [src*="/security/platform/security-hero-spice.png"], [src*="/security/platform/security-footer-spice.png"], [src*="/home/matrix-workflow-canvas.png"], .section-actions-workflow-logs::before, .actions-pricing-private::before, [src*="/site/packages/bg-top.png"], [src*="/site/packages/bg-install.svg"], [src*="/site/packages/bg-publish.svg"], [src*="/site/packages/bg-quote-1.svg"], [src*="/site/packages/bg-quote-2.svg"], [src*="/site/packages/bg-quote-3.svg"], [src*="/site/packages/bg-bottom.png"] {
 		filter: invert(84%) sepia(5%) saturate(494%) hue-rotate(176deg) brightness(36%) contrast(100%);
 	}
-	[src*="/home/enterprise-city-w-logos.jpg"] {
+	[src*="/site/copilot/cta-bg.jpg"], [src*="/site/heroes/features-hero-code-review.svg"], [src*="/site/code-review/pull-request.png"], [src*="/site/issues/hero/circle.png"], [src*="/site/issues/hero/line-repeat.png"], .features-category--automation-illo1, [src*="/site/features/launchpad/backgrounds/bg-apps-shapes.svg"], [src*="/site/features/launchpad/illo/illo-team-admin-window.png"], [src*="/site/features/launchpad/backgrounds/bg-team-admin-upper-mg.svg"], [src*="/site/features/launchpad/illo/illo-team-admin-member.png"], [src*="/site/features/launchpad/illo/illo-team-admin-roles.png"], [src*="/site/security/cmake-window.png"], [src*="/site/security/cmake-steps.png"], [src*="/site/issues/hero/launch.png"], [src*="/site/issues/hero/idea.png"] {
+		filter: invert(84%) sepia(27%) saturate(494%) hue-rotate(176deg) brightness(53%) contrast(100%);
+	}
+	[src*="/site/features/launchpad/backgrounds/bg-team-admin-shapes.svg"], [src*="/site/features/launchpad/backgrounds/bg-automation-cog.svg"]  {
+		filter: invert(84%) sepia(27%) saturate(494%) hue-rotate(176deg) brightness(53%) contrast(100%) !important;
+	}
+	[src*="/home/enterprise-city-w-logos.jpg"], [src*="/site/issues/hero/circle-arrows.png"], [src*="/site/issues/hero/line-arrows.png"], [src*="/site/actions/hero-bg.jpg"], [src*="/site/services/logos/spotify.svg"], [src*="/site/services/logos/slack.svg"], [src*="/site/services/logos/arm.svg"], [src*="/site/services/logos/dowjones.svg"], [src*="/site/services/logos/ford.svg"], [src*="/site/services/logos/stripe.svg"], [src*="/site/services/logos/3m.svg"] {
 		filter: invert(84%) sepia(33%) saturate(494%) hue-rotate(176deg) brightness(38%) contrast(100%);
 	}
 	.d-inline-block svg g rect[fill="url(#pattern0)"] {
 		filter: invert(1) hue-rotate(180deg) saturate(4) sepia(50%);
 	}
-	[src="https://avatars.githubusercontent.com/u/1231870?s=64&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=140&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=62&v=4"], [src*="/home/logos/platform-apple.svg"], [src*="/home/logos/platform-google.svg"], [src*="/home/logos/platform-windows.svg"], [src*="/home/logos/platform-linux.svg"], [src*="/home/logos/platform-arm.svg"] {
+	[src="https://avatars.githubusercontent.com/u/1231870?s=64&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=140&v=4"], [src="https://avatars.githubusercontent.com/ml/7?s=62&v=4"], [src*="/home/logos/platform-apple.svg"], [src*="/home/logos/platform-google.svg"], [src*="/home/logos/platform-windows.svg"], [src*="/home/logos/platform-linux.svg"], [src*="/home/logos/platform-arm.svg"], [src*="/site/discussions/phone-status-bar.svg"], [src*="/site/discussions/logos/next-js.svg"] {
 		filter: invert(1) hue-rotate(180deg);
 	}
 	[src*="https://avatars.githubusercontent.com/rust-lang?s=64&v=4"] {
 		filter: invert(1) hue-rotate(180deg);
 		background-color: var(--color-fg-default) !important;
 	}
-	[src*="/home/matrix-workflow-build.png"], [src*="/home/matrix-workflow-test.png"], [src*="/home/matrix-workflow-test-tab.png"], [src*="/home/matrix-workflow-publish-tab.png"], [src*="/home/matrix-workflow-publish.png"], [src*="/home/matrix-workflow-success.svg"] {
+	[src*="/home/matrix-workflow-build.png"], [src*="/home/matrix-workflow-test.png"], [src*="/home/matrix-workflow-test-tab.png"], [src*="/home/matrix-workflow-publish-tab.png"], [src*="/home/matrix-workflow-publish.png"], [src*="/home/matrix-workflow-success.svg"], [src*="/site/features/launchpad/illo/illo-automation-cards.svg"], [src*="/site/features/launchpad/illo/illo-apps-mobile-fg.png"], [src*="/site/features/launchpad/illo/illo-apps-mobile-bg.png"] {
 		filter: invert(84%) sepia(5%) saturate(494%) hue-rotate(176deg) brightness(96%) contrast(100%);
 		z-index: 1;
+	}
+	[src*="/site/issues/logos/logo-shopify.svg"] {
+		filter: invert(1) hue-rotate(180deg) sepia(10%) saturate(3);
 	}
 	[src*="/home/matrix-workflow-canvas.png"] {
 		z-index: -1;
@@ -507,7 +580,7 @@
 	[src*="/home/matrix-workflow-success.svg"] {
 		z-index: 1;
 	}
-	.d-inline-block svg g[style*="mix-blend-mode:multiply"] {
+	.d-inline-block svg g[style*="mix-blend-mode:multiply"], .mr-md-4 img[style*="mix-blend-mode: multiply"], .width-fit[style*="mix-blend-mode: multiply"] {
 		mix-blend-mode: normal !important;
 	}
 	.text-md-left[style*="ox-shadow: 0 0 50px 30px #fff"] {
@@ -532,13 +605,13 @@
 	.enterprise-transformation::after, .customer-story-spotlight::after, .customer-story-hero::after {
 		filter: invert(84%) sepia(4%) saturate(4254%) hue-rotate(176deg) brightness(39%) contrast(100%);
 	}
-	.d-inline-block svg path[fill="#24292E"] {
+	.d-inline-block svg path[fill="#24292E"], .build-in-slideX-left svg path[fill="#25292F"], .build-in-slideX-left svg path[fill="#25292f"], .build-in-slideX-left svg g[fill="#25292f"], .gutter-spacious svg g path[fill="#1B1F23"] {
 		fill: var(--color-fg-default);
 	}
-	.d-inline-block svg g path[fill="#000"], .d-inline-block svg g[fill="#000"] {
+	.d-inline-block svg g path[fill="#000"], .d-inline-block svg g[fill="#000"], .gutter-spacious svg g path[fill="#000"] {
 		fill: var(--color-scale-white);
 	}
-	.home-hero-container svg path[fill="#fff"], .home-git-log-terminal svg path[fill="#fff"], .home-git-item path[fill="#fff"], .font-mktg [data-color-mode] svg path[fill="#fff"] {
+	.home-hero-container svg path[fill="#fff"], .home-git-log-terminal svg path[fill="#fff"], .home-git-item path[fill="#fff"], .font-mktg [data-color-mode] svg path[fill="#fff"], .gutter-spacious svg g path[fill="#fff"] {
 		fill: var(--color-canvas-default);
 	}
 	.home-git-log-terminal svg g[fill="#8392ad"], .home-git-item g[fill="#8392ad"] {
@@ -554,6 +627,15 @@
 	.home-git-log-light .home-branch>path {
 		stroke: var(--color-border-default);
 	}
+	.gutter-spacious svg g[stroke="#fff"]  {
+		stroke: var(--color-canvas-default);
+	}
+	.gutter-spacious svg g path[stroke="#E1E4E8"], .gutter-spacious svg g path[stroke="#EAECEF"] {
+		stroke: var(--color-canvas-overlay);
+	}
+	.gutter-spacious svg g path[stroke="#1B1F23"] {
+		stroke: var(--color-fg-default);
+	}
 	.box-shadow-default-mktg {
 		box-shadow: 0 2.75px 2.21px rgba(255, 255, 255, .07), 0 6.65px 5.32px rgba(255, 255, 255, .04), 0 12.5px 10px rgba(255, 255, 255, .03), 0 22px 18px rgba(255, 255, 255, .03), 0 42px 33.4px rgba(255, 255, 255, .02), 0 100px 80px rgba(255, 255, 255, .02) !important;
 	}
@@ -566,10 +648,6 @@
 }
 @-moz-document domain("archiveprogram.github.com") {
 	/*The_Archives*/
-	:root {
-		--color-accent-second: #91a6ca;
-	}
-	
 	body {
 		background-color: var(--color-canvas-default);
 		color: var(--color-fg-default);
@@ -1057,7 +1135,7 @@
 	.position-absolute[style*="background:#fff"] {
 		background-color: var(--color-canvas-default) !important;
 	}
-	section[data-color-mode] {
+	section[data-color-mode], .rounded-2.p-4.px-md-6.pb-md-6.pt-md-8.box-shadow-default-mktg.homepage-section.homepage-section--trending {
 		background-color: var(--color-canvas-overlay);
 	}
 	.post__content pre, .post__content code, .post__content tr:nth-child(even) {
@@ -1102,7 +1180,6 @@
 	.text-bold.text-gradient-purple-coral {
 		background: -webkit-linear-gradient(-70deg,#8250df 0%,#d42a32 100%) !important;
 		-webkit-background-clip: text !important;
-
 	}
 }
 @-moz-document domain(socialimpact.github.com) {
@@ -3274,5 +3351,42 @@
 	}
 	[src*="/files/GitHub-Mark-120px-plus_x320.png"] {
 		filter: invert(1) hue-rotate(180deg);
+	}
+}
+@-moz-document domain('enterprise.github.com') {
+	/*The_Enterprise*/
+	body {
+		background-color: var(--color-canvas-default);
+		color: var(--color-fg-default);
+	}
+	.bg-white {
+		background-color: var(--color-canvas-default) !important;
+	}
+	.form-group .form-control, .form-control-mktg, .form-group .form-control:focus, .form-control-mktg:focus {
+		background-color: var(--color-canvas-overlay);
+	}
+	.bg-gray-light {
+		background-color: var(--color-canvas-overlay) !important;
+	}
+	a {
+		color: var(--color-accent-fg);
+	}
+	.text-gray-light, .text-gray {
+		color: var(--color-fg-muted) !important;
+	}
+	.btn-outline-mktg, .btn-outline-mktg:hover {
+		color: var(--color-accent-fg);
+		border-color: var(--color-accent-emphasis);
+	}
+	.btn-outline-mktg:hover {
+		opacity: .8;
+	}
+	.border-right, .border-left, .border-top, .border-bottom, .border, .col-border {
+		border-color: var(--color-border-default) !important;
+	}
+	.form-control, .form-select {
+		background-color: var(--color-canvas-default);
+		border-color: var(--color-border-default);
+		color: var(--color-fg-default);
 	}
 }
